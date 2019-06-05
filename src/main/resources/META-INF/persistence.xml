@@ -4,16 +4,21 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" version="2.1">
 
-    <persistence-unit name="JPA-USERS-AND-MOVIES">
+    <persistence-unit name="JPA-CATERING-APP">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <jta-data-source>java:/PostgresDS</jta-data-source>
 
+        <class>com.barankosecki.enitties.Customer</class>
+        <class>com.barankosecki.enitties.Order</class>
+        <class>com.barankosecki.enitties.Meal</class>
+        <class>com.barankosecki.enitties.Category</class>
+
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/soa"/>
-            <property name="hibernate.connection.driver" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.username" value="soa"/>
-            <property name="hibernate.connection.password" value="soa"/>
+            <!--<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/catering"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="catering"/>
+            <property name="hibernate.connection.password" value="catering"/>-->
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
