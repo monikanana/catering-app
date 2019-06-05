@@ -21,6 +21,13 @@ public class CustomerController {
     private OrderRepository orderRepository;
 
     @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findCustomerById(@PathParam("id") Integer id) {
+        return Response.ok(customerRepository.findById(id)).build();
+    }
+
+    @GET
     @Path("/orders")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAll() {
@@ -30,7 +37,14 @@ public class CustomerController {
     @GET
     @Path("/{id}/orders")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response findAllOrdersByCustomerId(@PathParam("id") Integer id) {
-        return Response.ok(orderRepository.findAllActiveOrdersByCustomer(id)).build();
+    public Response findAllActiveOrdersByCustomerId(@PathParam("id") Integer id) {
+        return Response.ok(orderRepository.findOrdersByCustomer(id, 1)).build();
+    }
+
+    @GET
+    @Path("/{id}/history")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findHistoryByCustomerId(@PathParam("id") Integer id) {
+        return Response.ok(orderRepository.findOrdersByCustomer(id, 3)).build();
     }
 }

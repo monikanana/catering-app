@@ -1,5 +1,7 @@
 package com.barankosecki.repository;
 
+import com.barankosecki.enitties.Customer;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,6 +28,15 @@ public class CustomerRepository {
         } catch (Exception e) {
             e.printStackTrace();
             return new LinkedList();
+        }
+    }
+
+    public Customer findById(Integer id) {
+        try {
+            return manager.find(Customer.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

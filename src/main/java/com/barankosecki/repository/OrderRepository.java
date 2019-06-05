@@ -28,11 +28,12 @@ public class OrderRepository {
         }
     }
 
-    public List findAllActiveOrdersByCustomer(Integer id) {
+    public List findOrdersByCustomer(Integer id, Integer state) {
         try {
             return manager
-                    .createQuery("SELECT o FROM Order o WHERE o.customer.id=:id AND o.state=1")
+                    .createQuery("SELECT o FROM Order o WHERE o.customer.id=:id AND o.state=:state")
                     .setParameter("id", id)
+                    .setParameter("state", state)
                     .getResultList();
         } catch (Exception e) {
             e.printStackTrace();
