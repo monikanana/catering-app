@@ -21,4 +21,7 @@ public class Meal {
     private Boolean isTopMeal;
 
     private Integer weight;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Category category;
 }

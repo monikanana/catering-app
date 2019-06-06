@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -22,9 +24,13 @@ public class Order {
 
     private Double price;
 
-    @ManyToOne
-    @JoinColumn(name = "meal_id")
-    private Meal meal;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "orders_meals",
+            joinColumns = {@JoinColumn(name = "id_order")},
+            inverseJoinColumns = {@JoinColumn(name = "id_meal")}
+    )
+    private Set<Meal> meals = new HashSet<>();
 
     private Integer state;
 
