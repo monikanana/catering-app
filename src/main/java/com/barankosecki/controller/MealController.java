@@ -38,11 +38,10 @@ public class MealController {
         return Response.ok(categoryRepository.findAll()).build();
     }
 
-    /*// TODO
     @Path("/top-meals")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response findTopMeals() {
         return Response.ok(ordersMealsRepository.findTopMeals()).build();
-    }*/
+    }
 }
