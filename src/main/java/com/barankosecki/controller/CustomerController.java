@@ -2,6 +2,7 @@ package com.barankosecki.controller;
 
 import com.barankosecki.repository.CustomerRepository;
 import com.barankosecki.repository.OrderRepository;
+import com.barankosecki.repository.SubscriptionsRespository;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -19,6 +20,9 @@ public class CustomerController {
 
     @Inject
     private OrderRepository orderRepository;
+
+    @Inject
+    private SubscriptionsRespository subscriptionsRespository;
 
     @GET
     @Path("/{id}")
@@ -46,5 +50,12 @@ public class CustomerController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response findHistoryByCustomerId(@PathParam("id") Integer id) {
         return Response.ok(orderRepository.findOrdersByCustomer(id, 3)).build();
+    }
+
+    @GET
+    @Path("/{id}/subscriptions")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findSubscriptionsByCustomerId(@PathParam("id") Integer id) {
+        return Response.ok(subscriptionsRespository.findAllByCustomerId(id)).build();
     }
 }
