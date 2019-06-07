@@ -23,13 +23,20 @@ public class MealController {
     @Inject
     private OrdersMealsRepository ordersMealsRepository;
 
-    @Path("/meals")
+    @Path("/")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-
     public Response findAll() {
         return Response.ok(mealRepository.findAll()).build();
     }
+
+    @Path("/byCategory")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findAllByCategory() {
+        return Response.ok(mealRepository.findAllByCategory()).build();
+    }
+
 
     @Path("/categories")
     @GET
