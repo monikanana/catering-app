@@ -3,6 +3,14 @@ begin;
 drop table if exists users;
 drop table if exists movies;
 drop table if exists ordersmeals;
+
+ALTER SEQUENCE days_id_seq RESTART WITH 1;
+ALTER SEQUENCE categories_id_seq RESTART WITH 1;
+ALTER SEQUENCE meals_id_seq RESTART WITH 1;
+ALTER SEQUENCE customers_id_seq RESTART WITH 1;
+ALTER SEQUENCE orders_id_seq RESTART WITH 1;
+ALTER SEQUENCE subscriptions_id_seq RESTART WITH 1;
+
 insert into customers(name, surname)values
 ('imie1', 'nazwisko1'),
 ('imie2', 'nazwisko2'),
@@ -72,14 +80,3 @@ insert into subscriptions_days(id_subscription, id_day) VALUES
 (4,1);
 
 commit;
--- ceny w 'orders' są takie wpisane bo:
--- select sum(price), id_order from orders_meals om
--- join meals m on om.id_meal=m.id group by id_order;
-
---SELECT * from meals;
---SELECT * from categories;
---SELECT * from customers;
---SELECT * from orders_meals;
---SELECT * from orders;
---SELECT * from subscriptions_meals;
---SELECT * from subscriptions;
