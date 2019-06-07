@@ -17,9 +17,6 @@ public class Meal {
 
     private Double price;
 
-    @Column(name = "is_top_meal")
-    private Boolean isTopMeal;
-
     private Integer weight;
 
     @ManyToOne(cascade = CascadeType.ALL)

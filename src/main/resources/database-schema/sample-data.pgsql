@@ -20,14 +20,14 @@ insert into days(name) VALUES
 ('środa'),
 ('czwartek'),
 ('piątek');
-insert into meals(is_top_meal, name, price, weight, category_id) VALUES
-(true, 'name1', 12.99, 250, 1),
-(true, 'name2', 9.99, 400, 3),
-(true, 'name3', 15.99, 350, 1),
-(true, 'name4', 30.99, 300, 1),
-(true, 'name5', 8.99, 250, 1),
-(false, 'name6', 30.99, 450, 2),
-(false, 'name7', 10.99, 350, 3);
+insert into meals(name, price, weight, category_id) VALUES
+('name1', 12.99, 250, 1),
+('name2', 9.99, 400, 3),
+('name3', 15.99, 350, 1),
+('name4', 30.99, 300, 1),
+('name5', 8.99, 250, 1),
+('name6', 30.99, 450, 2),
+('name7', 10.99, 350, 3);
 insert into orders(date, price, customer_id, state) VALUES
 ('2019-06-05', 56.97, 1, 1),
 ('2019-06-05', 22.98, 2, 1),
@@ -73,7 +73,8 @@ insert into subscriptions_days(id_subscription, id_day) VALUES
 
 commit;
 -- ceny w 'orders' są takie wpisane bo:
--- select sum(price), id_order from orders_meals om join meals m on om.id_meal=m.id group by id_order;
+-- select sum(price), id_order from orders_meals om
+-- join meals m on om.id_meal=m.id group by id_order;
 
 --SELECT * from meals;
 --SELECT * from categories;
