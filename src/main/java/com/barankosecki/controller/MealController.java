@@ -2,6 +2,7 @@ package com.barankosecki.controller;
 
 import com.barankosecki.repository.CategoryRepository;
 import com.barankosecki.repository.MealRepository;
+import com.barankosecki.repository.OrdersMealsRepository;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -19,6 +20,9 @@ public class MealController {
     @Inject
     private CategoryRepository categoryRepository;
 
+    @Inject
+    private OrdersMealsRepository ordersMealsRepository;
+
     @Path("/meals")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -33,4 +37,12 @@ public class MealController {
     public Response findAllCategories() {
         return Response.ok(categoryRepository.findAll()).build();
     }
+
+    /*// TODO
+    @Path("/top-meals")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findTopMeals() {
+        return Response.ok(ordersMealsRepository.findTopMeals()).build();
+    }*/
 }

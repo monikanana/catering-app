@@ -13,6 +13,9 @@
         <class>com.barankosecki.enitties.Customer</class>
         <class>com.barankosecki.enitties.Meal</class>
         <class>com.barankosecki.enitties.Order</class>
+        <class>com.barankosecki.enitties.OrdersMeals</class>
+        <class>com.barankosecki.enitties.Subscription</class>
+        <class>com.barankosecki.enitties.Day</class>
 
         <properties>
             <!--<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/catering"/>
