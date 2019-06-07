@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+        http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" version="2.1">
+
+    <persistence-unit name="JPA-CATERING-APP">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <jta-data-source>java:/PostgresDS</jta-data-source>
+
+        <class>com.barankosecki.enitties.Category</class>
+        <class>com.barankosecki.enitties.Customer</class>
+        <class>com.barankosecki.enitties.Meal</class>
+        <class>com.barankosecki.enitties.Order</class>
+        <class>com.barankosecki.enitties.OrdersMeals</class>
+        <class>com.barankosecki.enitties.Subscription</class>
+        <class>com.barankosecki.enitties.Day</class>
+
+        <properties>
+            <!--<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/catering"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="catering"/>
+            <property name="hibernate.connection.password" value="catering"/>-->
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
