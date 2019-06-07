@@ -2,6 +2,7 @@ begin;
 
 drop table if exists users;
 drop table if exists movies;
+drop table if exists ordersmeals;
 insert into customers(name, surname)values
 ('imie1', 'nazwisko1'),
 ('imie2', 'nazwisko2'),
@@ -13,6 +14,12 @@ insert into categories(name) VALUES
 ('wegetariańskie'),
 ('sałatki'),
 ('ryby');
+insert into days(name) VALUES
+('poniedziałek'),
+('wtorek'),
+('środa'),
+('czwartek'),
+('piątek');
 insert into meals(is_top_meal, name, price, weight, category_id) VALUES
 (true, 'name1', 12.99, 250, 1),
 (true, 'name2', 9.99, 400, 3),
@@ -35,6 +42,34 @@ insert into orders_meals(id_order, id_meal) VALUES
 (4,5),
 (5,1),(5,2),
 (6,1);
+insert into subscriptions(customer_id) VALUES
+(1),
+(2),
+(3),
+(4);
+insert into subscriptions_meals(id_subscription, id_meal) VALUES
+(1,7),
+(1,1),
+(1,2),
+(2,4),
+(2,1),
+(3,6),
+(3,5),
+(4,5),
+(4,3),
+(4,7),
+(4,1);
+insert into subscriptions_days(id_subscription, id_day) VALUES
+(1,1),
+(1,2),
+(2,4),
+(2,1),
+(3,5),
+(4,5),
+(4,4),
+(4,3),
+(4,2),
+(4,1);
 
 commit;
 -- ceny w 'orders' są takie wpisane bo:
@@ -45,3 +80,5 @@ commit;
 --SELECT * from customers;
 --SELECT * from orders_meals;
 --SELECT * from orders;
+--SELECT * from subscriptions_meals;
+--SELECT * from subscriptions;
