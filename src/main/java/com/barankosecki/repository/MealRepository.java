@@ -1,7 +1,7 @@
 package com.barankosecki.repository;
 
 import com.barankosecki.dto.MealsByCategoryDTO;
-import com.barankosecki.model.entities.Category;
+import com.barankosecki.entities.Category;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

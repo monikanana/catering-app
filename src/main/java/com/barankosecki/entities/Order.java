@@ -1,4 +1,4 @@
-package com.barankosecki.model.entities;
+package com.barankosecki.entities;
 
 import lombok.Data;
 

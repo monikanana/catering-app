@@ -1,8 +1,7 @@
-package com.barankosecki.model.entities;
+package com.barankosecki.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-
 
 import javax.persistence.*;
 

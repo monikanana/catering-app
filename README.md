@@ -1,4 +1,4 @@
-project starts on: http://localhost:8080/rest_war_exploded/
+project starts on: http://localhost:8080/catering_app_war_exploded/
 
 available endpoints GET:
 
