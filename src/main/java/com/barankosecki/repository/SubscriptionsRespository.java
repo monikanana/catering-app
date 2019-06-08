@@ -20,7 +20,7 @@ public class SubscriptionsRespository {
     public List findAllByCustomerId(Integer id) {
         try {
             return manager
-                    .createQuery("SELECT s FROM Subscription s WHERE s.customer.id=:id")
+                    .createQuery("SELECT o FROM Order o WHERE o.customer.id=:id and state='SUBSCRIBED'")
                     .setParameter("id", id)
                     .getResultList();
         } catch (Exception e) {

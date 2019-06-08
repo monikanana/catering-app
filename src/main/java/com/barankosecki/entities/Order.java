@@ -32,7 +32,7 @@ public class Order {
     )
     private Set<Meal> meals = new HashSet<>();
 
-    private Integer state;
+    private String state;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Location location;
