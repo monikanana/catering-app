@@ -28,14 +28,14 @@ insert into days(name) VALUES
 ('środa'),
 ('czwartek'),
 ('piątek');
-insert into meals(name, price, weight, category_id) VALUES
-('name1', 12.99, 250, 1),
-('name2', 9.99, 400, 3),
-('name3', 15.99, 350, 1),
-('name4', 30.99, 300, 1),
-('name5', 8.99, 250, 1),
-('name6', 30.99, 450, 2),
-('name7', 10.99, 350, 3);
+insert into meals(name, price, weight, category_id, restaurant_id) VALUES
+('name1', 12.99, 250, 1, 1),
+('name2', 9.99, 400, 3, 2),
+('name3', 15.99, 350, 1, 3),
+('name4', 30.99, 300, 1, 4),
+('name5', 8.99, 250, 1, 5),
+('name6', 30.99, 450, 2, 6),
+('name7', 10.99, 350, 3, 7);
 insert into orders(date, price, customer_id, state, location_id) VALUES
 ('2019-06-05', 56.97, 1, 1,1),
 ('2019-06-05', 22.98, 2, 1,1),
@@ -86,4 +86,13 @@ insert into locations(name, address) values
 ('Schibsted Sala Reprezentacyjna', 'ul. AK 2, Kraków'),
 ('Comarch Kamieniołom', 'ul. Conrada 2, Kraków'),
 ('Comarch Tartak', 'ul. Conrada 1, Kraków');
+
+insert into restaurants(name, address) values
+('Kebab Pasja', 'ul. Kawiory 1a, Kraków'),
+('Luna', 'ul. Budryka 2, Kraków'),
+('Babcia Malina', 'ul. Słowackiego 10, Kraków'),
+('U Szwagra', 'ul. Wesele 12, Kraków'),
+('Kwant', 'ul. AK 28, Kraków'),
+('Hindus FoodTruck', 'ul. Conrada 21, Kraków'),
+('Makarun', 'ul. Batorego 1, Kraków');
 commit;
