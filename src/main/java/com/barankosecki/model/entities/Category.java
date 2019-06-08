@@ -1,4 +1,4 @@
-package com.barankosecki.enitties;
+package com.barankosecki.model.entities;
 
 import lombok.Data;
 
@@ -6,13 +6,12 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "days")
-public class Day {
+@Table(name = "categories")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column
     private String name;
 }
+
