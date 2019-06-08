@@ -14,6 +14,9 @@
         <class>com.barankosecki.entities.Meal</class>
         <class>com.barankosecki.entities.Order</class>
         <class>com.barankosecki.entities.OrdersMeals</class>
+        <class>com.barankosecki.entities.Day</class>
+        <class>com.barankosecki.entities.Location</class>
+        <class>com.barankosecki.entities.Restaurant</class>
 
         <properties>
             <!--<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/catering"/>

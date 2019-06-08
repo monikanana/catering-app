@@ -23,4 +23,7 @@ public class Meal {
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnore
     private Category category;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Restaurant restaurant;
 }
