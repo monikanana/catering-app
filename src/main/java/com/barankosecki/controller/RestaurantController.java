@@ -1,6 +1,5 @@
 package com.barankosecki.controller;
 
-import com.barankosecki.repository.LocationRepository;
 import com.barankosecki.repository.RestaurantRepository;
 
 import javax.inject.Inject;
@@ -11,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/locations")
+@Path("/restaurants")
 public class RestaurantController {
 
     @Inject

@@ -10,6 +10,26 @@ ALTER SEQUENCE meals_id_seq RESTART WITH 1;
 ALTER SEQUENCE customers_id_seq RESTART WITH 1;
 ALTER SEQUENCE orders_id_seq RESTART WITH 1;
 ALTER SEQUENCE subscriptions_id_seq RESTART WITH 1;
+ALTER SEQUENCE locations_id_seq RESTART WITH 1;
+ALTER SEQUENCE restaurants_id_seq RESTART WITH 1;
+
+insert into locations(name, address) values
+('Sabre parter', 'ul. Lea 23, Kraków'),
+('Sabre piwnica', 'ul. Lea 23, Kraków'),
+('Sabre strych', 'ul. Lea 23, Kraków'),
+('Schibsted Bawialnia', 'ul. AK 2, Kraków'),
+('Schibsted Sala Reprezentacyjna', 'ul. AK 2, Kraków'),
+('Comarch Kamieniołom', 'ul. Conrada 2, Kraków'),
+('Comarch Tartak', 'ul. Conrada 1, Kraków');
+
+insert into restaurants(name, address) values
+('Kebab Pasja', 'ul. Kawiory 1a, Kraków'),
+('Luna', 'ul. Budryka 2, Kraków'),
+('Babcia Malina', 'ul. Słowackiego 10, Kraków'),
+('U Szwagra', 'ul. Wesele 12, Kraków'),
+('Kwant', 'ul. AK 28, Kraków'),
+('Hindus FoodTruck', 'ul. Conrada 21, Kraków'),
+('Makarun', 'ul. Batorego 1, Kraków');
 
 insert into customers(name, surname)values
 ('imie1', 'nazwisko1'),
@@ -78,21 +98,4 @@ insert into subscriptions_days(id_subscription, id_day) VALUES
 (4,3),
 (4,2),
 (4,1);
-insert into locations(name, address) values
-('Sabre parter', 'ul. Lea 23, Kraków'),
-('Sabre piwnica', 'ul. Lea 23, Kraków'),
-('Sabre strych', 'ul. Lea 23, Kraków'),
-('Schibsted Bawialnia', 'ul. AK 2, Kraków'),
-('Schibsted Sala Reprezentacyjna', 'ul. AK 2, Kraków'),
-('Comarch Kamieniołom', 'ul. Conrada 2, Kraków'),
-('Comarch Tartak', 'ul. Conrada 1, Kraków');
-
-insert into restaurants(name, address) values
-('Kebab Pasja', 'ul. Kawiory 1a, Kraków'),
-('Luna', 'ul. Budryka 2, Kraków'),
-('Babcia Malina', 'ul. Słowackiego 10, Kraków'),
-('U Szwagra', 'ul. Wesele 12, Kraków'),
-('Kwant', 'ul. AK 28, Kraków'),
-('Hindus FoodTruck', 'ul. Conrada 21, Kraków'),
-('Makarun', 'ul. Batorego 1, Kraków');
 commit;
