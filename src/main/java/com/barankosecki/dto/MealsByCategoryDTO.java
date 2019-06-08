@@ -1,6 +1,6 @@
 package com.barankosecki.dto;
 
-import com.barankosecki.enitties.Meal;
+import com.barankosecki.model.entities.Meal;
 import lombok.Data;
 
 import java.util.List;
