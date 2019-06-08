@@ -28,7 +28,7 @@ public class OrderRepository {
         }
     }
 
-    public List findOrdersByCustomer(Integer id, Integer state) {
+    public List findOrdersByCustomer(Integer id, String state) {
         try {
             return manager
                     .createQuery("SELECT o FROM Order o WHERE o.customer.id=:id AND o.state=:state")

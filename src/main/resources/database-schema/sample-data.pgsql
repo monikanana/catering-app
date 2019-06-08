@@ -37,12 +37,12 @@ insert into meals(name, price, weight, category_id) VALUES
 ('name6', 30.99, 450, 2),
 ('name7', 10.99, 350, 3);
 insert into orders(date, price, customer_id, state) VALUES
-('2019-06-05', 56.97, 1, 1),
-('2019-06-05', 22.98, 2, 1),
-('2019-06-05', 12.99, 3, 1),
-('2019-06-05', 8.99, 4, 2),
-('2019-06-05', 22.98, 5, 2),
-('2019-06-05', 39.98, 5, 3);
+('2019-06-05', 56.97, 1, 'ORDERED'),
+('2019-06-05', 22.98, 2, 'ORDERED'),
+('2019-06-05', 12.99, 3, 'ORDERED'),
+('2019-06-05', 8.99, 4, 'CANCELLED'),
+('2019-06-05', 22.98, 5, 'CANCELLED'),
+('2019-06-05', 39.98, 5, 'SUPPLIED');
 insert into orders_meals(id_order, id_meal) VALUES
 (1,2),(1,3),(1,4),
 (2,1),(2,2),

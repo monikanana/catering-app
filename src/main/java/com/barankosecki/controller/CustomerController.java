@@ -42,14 +42,14 @@ public class CustomerController {
     @Path("/{id}/orders")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAllActiveOrdersByCustomerId(@PathParam("id") Integer id) {
-        return Response.ok(orderRepository.findOrdersByCustomer(id, 1)).build();
+        return Response.ok(orderRepository.findOrdersByCustomer(id, "ORDERED")).build();
     }
 
     @GET
     @Path("/{id}/history")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findHistoryByCustomerId(@PathParam("id") Integer id) {
-        return Response.ok(orderRepository.findOrdersByCustomer(id, 3)).build();
+        return Response.ok(orderRepository.findOrdersByCustomer(id, "SUPPLIED")).build();
     }
 
     @GET

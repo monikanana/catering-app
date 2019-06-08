@@ -32,6 +32,5 @@ public class Order {
     )
     private Set<Meal> meals = new HashSet<>();
 
-    private Integer state;
-
+    private String state;
 }

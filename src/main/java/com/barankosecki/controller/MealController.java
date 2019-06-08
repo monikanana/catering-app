@@ -30,7 +30,7 @@ public class MealController {
         return Response.ok(mealRepository.findAll()).build();
     }
 
-    @Path("/byCategory")
+    @Path("/by-category")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAllByCategory() {

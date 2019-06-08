@@ -19,15 +19,16 @@ public class OrdersMealsRepository {
 
     public List findTopMeals() {
         try {
+
             return manager
                     .createQuery("SELECT m from Meal m where m.id in :mealsId")
-                    .setParameter(
-                            "mealsId", manager
-                                    .createQuery("SELECT om.identity.mealId FROM OrdersMeals om " +
-                                            "group by om.identity.mealId order by count(om.identity.orderId) desc")
-                                    .getResultList()
-                                    .subList(0, 3))
+                    .setParameter("mealsId", manager
+                            .createQuery("SELECT om.identity.mealId FROM OrdersMeals om " +
+                                    "group by om.identity.mealId order by count(om.identity.orderId) desc ")
+                            .getResultList()
+                            .subList(0, 3))
                     .getResultList();
+
         } catch (Exception e) {
             e.printStackTrace();
             return new LinkedList();
