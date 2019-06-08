@@ -1,4 +1,4 @@
-package com.barankosecki.enitties.enums;
+package com.barankosecki.entities.enums;
 
 public enum OrderState {
     ORDERED,    // state = 1

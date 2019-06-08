@@ -1,6 +1,6 @@
 package com.barankosecki.repository;
 
-import com.barankosecki.model.entities.Customer;
+import com.barankosecki.entities.Customer;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
