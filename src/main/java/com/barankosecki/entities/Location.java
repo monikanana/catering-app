@@ -4,14 +4,15 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Entity
 @Data
-@Table(name = "days")
-public class Day {
+@Entity
+@Table(name = "locations")
+public class Location {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    Integer id;
 
-    private String name;
+    String name;
+    String address;
 }

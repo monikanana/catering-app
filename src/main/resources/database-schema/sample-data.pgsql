@@ -36,13 +36,13 @@ insert into meals(name, price, weight, category_id) VALUES
 ('name5', 8.99, 250, 1),
 ('name6', 30.99, 450, 2),
 ('name7', 10.99, 350, 3);
-insert into orders(date, price, customer_id, state) VALUES
-('2019-06-05', 56.97, 1, 1),
-('2019-06-05', 22.98, 2, 1),
-('2019-06-05', 12.99, 3, 1),
-('2019-06-05', 8.99, 4, 2),
-('2019-06-05', 22.98, 5, 2),
-('2019-06-05', 39.98, 5, 3);
+insert into orders(date, price, customer_id, state, location_id) VALUES
+('2019-06-05', 56.97, 1, 1,1),
+('2019-06-05', 22.98, 2, 1,1),
+('2019-06-05', 12.99, 3, 1,2),
+('2019-06-05', 8.99, 4, 2,3),
+('2019-06-05', 22.98, 5, 2,4),
+('2019-06-05', 39.98, 5, 3,7);
 insert into orders_meals(id_order, id_meal) VALUES
 (1,2),(1,3),(1,4),
 (2,1),(2,2),
@@ -78,5 +78,12 @@ insert into subscriptions_days(id_subscription, id_day) VALUES
 (4,3),
 (4,2),
 (4,1);
-
+insert into locations(name, address) values
+('Sabre parter', 'ul. Lea 23, Kraków'),
+('Sabre piwnica', 'ul. Lea 23, Kraków'),
+('Sabre strych', 'ul. Lea 23, Kraków'),
+('Schibsted Bawialnia', 'ul. AK 2, Kraków'),
+('Schibsted Sala Reprezentacyjna', 'ul. AK 2, Kraków'),
+('Comarch Kamieniołom', 'ul. Conrada 2, Kraków'),
+('Comarch Tartak', 'ul. Conrada 1, Kraków');
 commit;

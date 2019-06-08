@@ -34,4 +34,7 @@ public class Order {
 
     private Integer state;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Location location;
+
 }
