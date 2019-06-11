@@ -2,6 +2,7 @@ package com.barankosecki.repository;
 
 import com.barankosecki.dto.MealsByCategoryDTO;
 import com.barankosecki.entities.Category;
+import com.barankosecki.entities.Meal;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -55,7 +56,7 @@ public class MealRepository {
 
             List<Category> categories = categoryRepository.findAll();
 
-            for(Category category : categories) {
+            for (Category category : categories) {
                 MealsByCategoryDTO mealsByCategoryDTO = new MealsByCategoryDTO();
                 mealsByCategoryDTO.setCategoryId(category.getId());
                 mealsByCategoryDTO.setCategoryName(category.getName());
@@ -68,6 +69,15 @@ public class MealRepository {
         } catch (Exception e) {
             e.printStackTrace();
             return new LinkedList();
+        }
+    }
+
+    public Meal findById(Integer id) {
+        try {
+            return manager.find(Meal.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

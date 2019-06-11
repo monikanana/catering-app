@@ -1,5 +1,7 @@
 package com.barankosecki.repository;
 
+import com.barankosecki.entities.Order;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -38,6 +40,18 @@ public class OrderRepository {
         } catch (Exception e) {
             e.printStackTrace();
             return new LinkedList();
+        }
+    }
+
+    public void save(Order order) {
+        try {
+            manager.getTransaction().begin();
+            manager.persist(order);
+            manager.getTransaction().commit();
+            System.out.println("------ horray ------");
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+            System.out.println("------ nope ------");
         }
     }
 }
