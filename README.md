@@ -1,6 +1,6 @@
 project starts on: http://localhost:8080/catering_app_war_exploded/
 
-available endpoints GET:
+**available endpoints GET**:
 
 /customers/{id}
 
@@ -17,3 +17,7 @@ available endpoints GET:
 /meals/meals (temporary)
 
 /meals/categories
+
+**available endpoints POST**:
+
+/customers/{id}/orders -> src/main/java/com/barankosecki/dto/OrderFromClientDTO.java
