@@ -1,14 +1,13 @@
 package com.barankosecki.controller;
 
+import com.barankosecki.dto.OrderFromClientDTO;
 import com.barankosecki.repository.CustomerRepository;
 import com.barankosecki.repository.OrderRepository;
 import com.barankosecki.repository.SubscriptionsRespository;
+import com.barankosecki.service.OrderService;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -23,6 +22,12 @@ public class CustomerController {
 
     @Inject
     private SubscriptionsRespository subscriptionsRespository;
+
+    private OrderService orderService;
+
+    public CustomerController() {
+        this.orderService = new OrderService();
+    }
 
     @GET
     @Path("/{id}")
@@ -57,5 +62,14 @@ public class CustomerController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response findSubscriptionsByCustomerId(@PathParam("id") Integer id) {
         return Response.ok(subscriptionsRespository.findAllByCustomerId(id)).build();
+    }
+
+    @POST
+    @Path("/{id}/orders")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response order(@PathParam("id") Integer id, OrderFromClientDTO dto) {
+        orderService.sendOrder(id, dto);
+        return Response.ok().build();
     }
 }
