@@ -16,7 +16,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
@@ -24,7 +24,7 @@ public class Order {
 
     private Double price;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(
             name = "orders_meals",
             joinColumns = {@JoinColumn(name = "id_order")},
@@ -34,6 +34,6 @@ public class Order {
 
     private String state;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Location location;
 }
