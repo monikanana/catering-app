@@ -1,0 +1,231 @@
+[
+  {
+    "id": 1,
+    "customer": {
+      "id": 1,
+      "name": "imie1",
+      "surname": "nazwisko1"
+    },
+    "date": 1559685600000,
+    "price": 56.97,
+    "meals": [
+      {
+        "id": 2,
+        "name": "name2",
+        "price": 9.99,
+        "weight": 400,
+        "restaurant": {
+          "id": 2,
+          "name": "Luna",
+          "address": "ul. Budryka 2, Kraków"
+        }
+      },
+      {
+        "id": 4,
+        "name": "name4",
+        "price": 30.99,
+        "weight": 300,
+        "restaurant": {
+          "id": 4,
+          "name": "U Szwagra",
+          "address": "ul. Wesele 12, Kraków"
+        }
+      },
+      {
+        "id": 3,
+        "name": "name3",
+        "price": 15.99,
+        "weight": 350,
+        "restaurant": {
+          "id": 3,
+          "name": "Babcia Malina",
+          "address": "ul. Słowackiego 10, Kraków"
+        }
+      }
+    ],
+    "state": "1",
+    "location": {
+      "id": 1,
+      "name": "Sabre parter",
+      "address": "ul. Lea 23, Kraków"
+    }
+  },
+  {
+    "id": 2,
+    "customer": {
+      "id": 2,
+      "name": "imie2",
+      "surname": "nazwisko2"
+    },
+    "date": 1559685600000,
+    "price": 22.98,
+    "meals": [
+      {
+        "id": 1,
+        "name": "name1",
+        "price": 12.99,
+        "weight": 250,
+        "restaurant": {
+          "id": 1,
+          "name": "Kebab Pasja",
+          "address": "ul. Kawiory 1a, Kraków"
+        }
+      },
+      {
+        "id": 2,
+        "name": "name2",
+        "price": 9.99,
+        "weight": 400,
+        "restaurant": {
+          "id": 2,
+          "name": "Luna",
+          "address": "ul. Budryka 2, Kraków"
+        }
+      }
+    ],
+    "state": "1",
+    "location": {
+      "id": 1,
+      "name": "Sabre parter",
+      "address": "ul. Lea 23, Kraków"
+    }
+  },
+  {
+    "id": 3,
+    "customer": {
+      "id": 3,
+      "name": "imie3",
+      "surname": "nazwisko3"
+    },
+    "date": 1559685600000,
+    "price": 12.99,
+    "meals": [
+      {
+        "id": 6,
+        "name": "name6",
+        "price": 30.99,
+        "weight": 450,
+        "restaurant": {
+          "id": 6,
+          "name": "Hindus FoodTruck",
+          "address": "ul. Conrada 21, Kraków"
+        }
+      },
+      {
+        "id": 5,
+        "name": "name5",
+        "price": 8.99,
+        "weight": 250,
+        "restaurant": {
+          "id": 5,
+          "name": "Kwant",
+          "address": "ul. AK 28, Kraków"
+        }
+      }
+    ],
+    "state": "1",
+    "location": {
+      "id": 2,
+      "name": "Sabre piwnica",
+      "address": "ul. Lea 23, Kraków"
+    }
+  },
+  {
+    "id": 4,
+    "customer": {
+      "id": 4,
+      "name": "imie4",
+      "surname": "nazwisko4"
+    },
+    "date": 1559685600000,
+    "price": 8.99,
+    "meals": [
+      {
+        "id": 5,
+        "name": "name5",
+        "price": 8.99,
+        "weight": 250,
+        "restaurant": {
+          "id": 5,
+          "name": "Kwant",
+          "address": "ul. AK 28, Kraków"
+        }
+      }
+    ],
+    "state": "2",
+    "location": {
+      "id": 3,
+      "name": "Sabre strych",
+      "address": "ul. Lea 23, Kraków"
+    }
+  },
+  {
+    "id": 5,
+    "customer": {
+      "id": 5,
+      "name": "imie5",
+      "surname": "nazwisko5"
+    },
+    "date": 1559685600000,
+    "price": 22.98,
+    "meals": [
+      {
+        "id": 1,
+        "name": "name1",
+        "price": 12.99,
+        "weight": 250,
+        "restaurant": {
+          "id": 1,
+          "name": "Kebab Pasja",
+          "address": "ul. Kawiory 1a, Kraków"
+        }
+      },
+      {
+        "id": 2,
+        "name": "name2",
+        "price": 9.99,
+        "weight": 400,
+        "restaurant": {
+          "id": 2,
+          "name": "Luna",
+          "address": "ul. Budryka 2, Kraków"
+        }
+      }
+    ],
+    "state": "2",
+    "location": {
+      "id": 4,
+      "name": "Schibsted Bawialnia",
+      "address": "ul. AK 2, Kraków"
+    }
+  },
+  {
+    "id": 6,
+    "customer": {
+      "id": 5,
+      "name": "imie5",
+      "surname": "nazwisko5"
+    },
+    "date": 1559685600000,
+    "price": 39.98,
+    "meals": [
+      {
+        "id": 1,
+        "name": "name1",
+        "price": 12.99,
+        "weight": 250,
+        "restaurant": {
+          "id": 1,
+          "name": "Kebab Pasja",
+          "address": "ul. Kawiory 1a, Kraków"
+        }
+      }
+    ],
+    "state": "3",
+    "location": {
+      "id": 7,
+      "name": "Comarch Tartak",
+      "address": "ul. Conrada 1, Kraków"
+    }
+  }
+]
