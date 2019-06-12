@@ -19,7 +19,6 @@ public class OrdersMealsRepository {
 
     public List findTopMeals() {
         try {
-
             return manager
                     .createQuery("SELECT m from Meal m where m.id in :mealsId")
                     .setParameter("mealsId", manager

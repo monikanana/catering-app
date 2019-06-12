@@ -3,7 +3,7 @@ package com.barankosecki.entities.enums;
 public enum OrderState {
     ORDERED,    // state = 1
     CANCELLED,  // state = 2
-    SUPPLIED;    // state = 3
+    DELIVERED;    // state = 3
 
     public static int getValue(String s) {
         switch (s) {
@@ -11,7 +11,7 @@ public enum OrderState {
                 return 1;
             case "CANCELLED":
                 return 2;
-            case "SUPPLIED":
+            case "DELIVERED":
                 return 3;
             default:
                 return -1;
