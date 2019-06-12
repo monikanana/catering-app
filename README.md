@@ -4,8 +4,6 @@ project starts on: http://localhost:8080/catering_app_war_exploded/
 
 /customers/{id}
 
-/customers/orders
-
 /customers/{id}/orders
 
 /customers/{id}/history
@@ -14,10 +12,20 @@ project starts on: http://localhost:8080/catering_app_war_exploded/
 
 /meals
 
-/meals/meals (temporary)
+/meals/top-meals
 
 /meals/categories
+
+/orders/all
+
+/orders/active
 
 **available endpoints POST**:
 
 /customers/{id}/orders -> src/main/java/com/barankosecki/dto/OrderFromClientDTO.java
+
+/orders/{id} -> no body is required, used to mark order as delivered
+
+**available endpoints DELETE**:
+
+/orders/{id}
