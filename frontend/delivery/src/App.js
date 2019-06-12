@@ -1,12 +1,9 @@
 import React from 'react';
 import './App.css';
-import * as orders from './orders.json';
-
-import {List} from 'antd';
+//import * as orders from './orders.json';
 import 'antd/dist/antd.css';
 
 class App extends React.Component {
-
 
     constructor(props) {
         super(props);
@@ -32,7 +29,14 @@ class App extends React.Component {
     }
 
     completeOrder(id) {
+        fetch("http://localhost:8080/catering_app_war_exploded/orders/"+ id, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
 
+        this.getOrders();
     }
 
     cancelOrder(id) {
@@ -45,33 +49,33 @@ class App extends React.Component {
 
         return (
             <div className="App">
-                <div className="orders-list">
-                <h1>Zamówienia do dostarczenia:</h1>
-
-                {orders.map(order => {
-                    return (
-                        <div className="order">
-                            <h2>Zamówienie nr {order.id}</h2>
-                            <List
-                                className="orders-list"
-                                itemLayout="horizontal"
-                                dataSource={order.meals}
-                                renderItem={meal => (
-                                    <List.Item actions={[<a>anuluj</a>, <a>dostarcz</a>]}>
-                                        <List.Item.Meta
-                                            title={meal.name}
-                                            description="adres odbioru, adres dostawy"
-                                        />
-                                        <div className="order-date">{order.date}</div>
-                                    </List.Item> )}
-                            />
-                        </div>
-                    );
-                })
-                }
-                </div>
+                <h1 className="app-title">Zamówienia do dostarczenia:</h1>
+                <ul className="orders-list">
+                    {orders.map(order => {
+                        return (
+                            <li key={order.id} className="order">
+                                <h2>Zamówienie nr {order.id}</h2>
+                                <h3>Imię klienta: {order.customer.name}</h3>
+                                <h3>Adres dostawy: {order.location.name}, {order.location.address}</h3>
+                                <h5 className="order-date">{new Date(order.date).toDateString()}</h5>
+                                <ul className="meals-list">
+                                    {order.meals.map(meal =>
+                                        <li key={meal.id}>
+                                            <h4 className="meal-name">{meal.name}</h4>
+                                            <h5 className="meal-restaurant">{`Odbierz z: ${meal.restaurant.address}`}</h5>
+                                        </li>)}
+                                </ul>
+                                <div className="actions">
+                                    <button className="action-btn" onClick={() => this.cancelOrder(order.id)}>Anuluj zamówienie</button>
+                                    <button className="action-btn" onClick={() => this.completeOrder(order.id)}>Dostarcz zamówienie</button>
+                                </div>
+                            </li>
+                        );
+                    })
+                    }
+                </ul>
             </div>
-          );
+        );
     }
 }
 
