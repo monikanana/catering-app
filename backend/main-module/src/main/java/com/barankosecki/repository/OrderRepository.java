@@ -48,10 +48,43 @@ public class OrderRepository {
             manager.getTransaction().begin();
             manager.persist(order);
             manager.getTransaction().commit();
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+        }
+    }
+
+    public void changeStateById(Integer orderId, String state) {
+        try {
+            manager.getTransaction().begin();
+            Order order = findById(orderId);
+            order.setState(state);
+            manager.persist(order);
+            manager.getTransaction().commit();
             System.out.println("------ horray ------");
         } catch (Exception e) {
             manager.getTransaction().rollback();
             System.out.println("------ nope ------");
+        }
+    }
+
+    private Order findById(Integer orderId) {
+        try {
+            return manager.find(Order.class, orderId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List findAllActive() {
+        try {
+            return manager
+                    .createQuery("SELECT o FROM Order o WHERE o.state=:state")
+                    .setParameter("state", "ORDERED")
+                    .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new LinkedList();
         }
     }
 }
