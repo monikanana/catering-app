@@ -28,15 +28,15 @@ public class OrderControllers {
         return Response.ok(orderRepository.findAllActive()).build();
     }
 
-    @DELETE
-    @Path("/{id}")
+    @POST
+    @Path("/{id}/cancel")
     public Response deleteById(@PathParam("id") Integer orderId) {
         orderRepository.changeStateById(orderId, "CANCELLED");
         return Response.ok().build();
     }
 
     @POST
-    @Path("/{id}")
+    @Path("/{id}/deliver")
     public Response deliver(@PathParam("id") Integer orderId) {
         orderRepository.changeStateById(orderId, "DELIVERED");
         return Response.ok().build();

@@ -22,10 +22,8 @@ project starts on: http://localhost:8080/catering_app_war_exploded/
 
 **available endpoints POST**:
 
-/customers/{id}/orders -> src/main/java/com/barankosecki/dto/OrderFromClientDTO.java
+/customers/{id}/orders -> body: src/main/java/com/barankosecki/dto/OrderFromClientDTO.java
 
-/orders/{id} -> no body is required, used to mark order as delivered
+/orders/{id}/deliver -> no body is required
 
-**available endpoints DELETE**:
-
-/orders/{id}
+/orders/{id}/cancel -> no body is required
