@@ -1,6 +1,7 @@
 package com.barankosecki.controller;
 
 import com.barankosecki.dto.OrderFromClientDTO;
+import com.barankosecki.dto.SubscriptionFromClientDTO;
 import com.barankosecki.repository.CustomerRepository;
 import com.barankosecki.repository.OrderRepository;
 import com.barankosecki.repository.SubscriptionsRespository;
@@ -64,5 +65,12 @@ public class CustomerController {
     public Response order(@PathParam("id") Integer customerId, OrderFromClientDTO dto) {
         orderService.sendOrder(customerId, dto);
         return Response.ok().build();
+    }
+
+    @POST
+    @Path("/{id}/subscriptions")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addSubscription(@PathParam("id") Integer id, SubscriptionFromClientDTO subscriptionDTO) {
+        return null;
     }
 }
