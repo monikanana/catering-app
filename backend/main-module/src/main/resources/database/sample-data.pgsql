@@ -53,7 +53,7 @@ insert into orders(date, price, customer_id, state, location_id) VALUES
 ('2019-06-05', 12.99, 3, 'ORDERED', 2),
 ('2019-06-05', 8.99, 4, 'CANCELLED', 3),
 ('2019-06-05', 22.98, 5, 'CANCELLED', 4),
-('2019-06-05', 39.98, 5, 'SUPPLIED', 7);
+('2019-06-05', 39.98, 5, 'DELIVERED', 7);
 insert into orders_meals(id_order, id_meal) VALUES
 (1,2),(1,3),(1,4),
 (2,1),(2,2),
