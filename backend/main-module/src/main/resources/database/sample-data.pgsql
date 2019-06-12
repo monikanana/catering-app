@@ -4,13 +4,13 @@ drop table if exists users;
 drop table if exists movies;
 drop table if exists ordersmeals;
 
-ALTER SEQUENCE categories_id_seq RESTART WITH 1;
-ALTER SEQUENCE meals_id_seq RESTART WITH 1;
-ALTER SEQUENCE customers_id_seq RESTART WITH 1;
-ALTER SEQUENCE orders_id_seq RESTART WITH 1;
-ALTER SEQUENCE subscriptions_id_seq RESTART WITH 1;
-ALTER SEQUENCE locations_id_seq RESTART WITH 1;
-ALTER SEQUENCE restaurants_id_seq RESTART WITH 1;
+ALTER SEQUENCE if exists categories_id_seq RESTART WITH 1;
+ALTER SEQUENCE if exists meals_id_seq RESTART WITH 1;
+ALTER SEQUENCE if exists customers_id_seq RESTART WITH 1;
+ALTER SEQUENCE if exists orders_id_seq RESTART WITH 1;
+ALTER SEQUENCE if exists subscriptions_id_seq RESTART WITH 1;
+ALTER SEQUENCE if exists locations_id_seq RESTART WITH 1;
+ALTER SEQUENCE if exists restaurants_id_seq RESTART WITH 1;
 
 insert into locations(name, address) values
 ('Sabre parter', 'ul. Lea 23, Kraków'),

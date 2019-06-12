@@ -16,7 +16,7 @@ class App extends React.Component {
     }
 
     getOrders() {
-        fetch("http://localhost:8080/catering_app_war_exploded/customers/orders")
+        fetch("http://localhost:8080/catering_app_war_exploded/orders/active")
             .then(orders => orders.json())
             .then(orders => {
                 this.setState({orders: orders});
@@ -29,20 +29,18 @@ class App extends React.Component {
     }
 
     completeOrder(id) {
-        fetch("http://localhost:8080/catering_app_war_exploded/orders/"+ id, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-        this.getOrders();
+        fetch("http://localhost:8080/catering_app_war_exploded/orders/" + id, {
+            method: 'POST'
+        })
+            .then(() => this.getOrders());
     }
 
     cancelOrder(id) {
-
+        fetch("http://localhost:8080/catering_app_war_exploded/orders/" + id, {
+            method: 'DELETE'
+        })
+            .then(() => this.getOrders());
     }
-
 
     render() {
         const {orders} = this.state;
