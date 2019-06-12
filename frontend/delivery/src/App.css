@@ -1,8 +1,63 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
-.projects-list {
-  max-width: 800px;
-  margin: 0 auto;
+.app-title {
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.orders-list {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.orders-list li {
+    padding: 20px 0;
+    border-bottom: 1px dashed #101010;
+}
+
+.meals-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.meals-list li {
+    background-color: #d4380d;
+    margin: 30px 0;
+    padding: 20px;
+    color: #fefefe;
+    border: none;
+}
+
+.meal-name {
+    color: #fefefe;
+}
+
+.meal-restaurant {
+    color: #fefefe;
+}
+
+.action-btn {
+    background: #d4380d;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    color: #fefefe;
+}
+
+.action-btn:first-of-type {
+    margin-right: 10px;
+}
+
+.action-btn:hover {
+    background-color: #5b8c00;
 }
