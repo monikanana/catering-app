@@ -1,3 +1,24 @@
 .App {
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.restaurants-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+
+}
+
+.restaurants-list li {
+  padding: 10px 20px;
+  border: 1px solid #101010;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.restaurants-list li:last-of-type {
+  margin-right: 0;
 }
