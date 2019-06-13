@@ -1,0 +1,15 @@
+.meals-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.meals-list li {
+    background-color: #5b8c00;
+    margin: 30px 0;
+    padding: 20px;
+    color: #fefefe;
+    border: none;
+}

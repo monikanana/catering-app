@@ -41,7 +41,7 @@ class App extends Component {
                             ))
                         }
                     </ul>}
-                    <Route exact path="/restaurant/:restaurantId" component={Restaurant}/>
+                    <Route path="/restaurant/:restaurantId" component={Restaurant}/>
                 </BrowserRouter>
             </div>
         );

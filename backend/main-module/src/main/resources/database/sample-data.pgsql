@@ -40,20 +40,22 @@ insert into categories(name) VALUES
 ('sałatki'),
 ('ryby');
 insert into meals(name, price, weight, category_id, restaurant_id) VALUES
-('name1', 12.99, 250, 1, 1),
-('name2', 9.99, 400, 3, 2),
-('name3', 15.99, 350, 1, 3),
-('name4', 30.99, 300, 1, 4),
-('name5', 8.99, 250, 1, 5),
-('name6', 30.99, 450, 2, 6),
-('name7', 10.99, 350, 3, 7);
+('Wspaniały Kotlet', 12.99, 250, 1, 1),
+('Sałatka z bakłażanu', 9.99, 400, 3, 2),
+('Potrawka z chrząszcza', 15.99, 350, 1, 3),
+('Mięso mielone', 30.99, 300, 1, 4),
+('Gulasz ognisty', 8.99, 250, 1, 5),
+('Marchew z makaronem', 30.99, 450, 2, 6),
+('Sałatka z jabłka i marchwi', 10.99, 350, 3, 7);
 insert into orders(date, price, customer_id, state, location_id) VALUES
-('2019-06-05', 56.97, 1, 'ORDERED', 1),
+('2019-06-07', 56.97, 1, 'ORDERED', 1),
 ('2019-06-05', 22.98, 2, 'ORDERED', 1),
-('2019-06-05', 12.99, 3, 'ORDERED', 2),
-('2019-06-05', 8.99, 4, 'CANCELLED', 3),
-('2019-06-05', 22.98, 5, 'CANCELLED', 4),
-('2019-06-05', 39.98, 5, 'DELIVERED', 7);
+('2019-06-13', 12.99, 3, 'ORDERED', 2),
+('2019-06-13', 8.99, 4, 'CANCELLED', 3),
+('2019-06-13', 22.98, 5, 'CANCELLED', 4),
+('2019-06-14', 39.98, 5, 'DELIVERED', 7),
+('2019-06-13', 39.98, 5, 'SUBSCRIBED', 7),
+('2019-06-14', 39.98, 5, 'SUBSCRIBED', 7);
 insert into orders_meals(id_order, id_meal) VALUES
 (1,2),(1,3),(1,4),
 (2,1),(2,2),

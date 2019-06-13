@@ -6,7 +6,7 @@ class Restaurant extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            restaurantId: props.match.params.restaurantId
+            restaurantId: 0
         };
         this.getRestaurantInfo = this.getRestaurantInfo.bind(this);
         this.getMeals = this.getMeals.bind(this);
@@ -19,11 +19,13 @@ class Restaurant extends Component {
     }
 
     getMeals(restaurantId) {
-        fetch("http://localhost:8080/catering_app_war_exploded/orders/active")
+        fetch("http://localhost:8080/catering_app_war_exploded/orders/all")
             .then(response => response.json())
             .then(orders => {
-                orders = orders.filter(order =>
-                    new Date(order.date).toDateString() === new Date().toDateString());
+                orders = orders.filter(order => {
+                    return new Date(order.date).toDateString() === new Date().toDateString()
+                        && (order.state === "SUBSCRIBED" || order.state === "ORDERED");
+            });
 
                 let meals = [];
 
@@ -32,9 +34,6 @@ class Restaurant extends Component {
                         return meal.restaurant.id === restaurantId;
                     }));
                 }
-
-                console.log(meals);
-
                 this.setState({meals: meals});
             });
     }
@@ -46,13 +45,27 @@ class Restaurant extends Component {
         }
     }
 
+    componentDidUpdate() {
+        const restaurantId = +this.props.match.params.restaurantId;
+
+        if (restaurantId !== this.state.restaurantId)  {
+            this.getRestaurantInfo();
+            this.getMeals(restaurantId);
+            this.setState(({restaurantId: restaurantId}));
+        }
+    }
+
     render() {
-        if (this.state.restaurant) {
+        if (this.state.restaurant && this.state.meals) {
             return (
                 <div className="restaurant">
                     <h1>{this.state.restaurant.name}</h1>
                     <h2>Zamówione posiłki na dzisiaj ({new Date().toDateString()}):</h2>
-
+                    <ul className="meals-list">
+                    {this.state.meals.map(meal => {
+                        return <li key={meal.id}>{meal.name}</li>
+                    })}
+                    </ul>
                 </div>
             );
         } else {
