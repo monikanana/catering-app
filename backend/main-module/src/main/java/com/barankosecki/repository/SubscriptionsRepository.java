@@ -8,11 +8,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 @ApplicationScoped
-public class SubscriptionsRespository {
+public class SubscriptionsRepository {
 
     private EntityManager manager;
 
-    public SubscriptionsRespository() {
+    public SubscriptionsRepository() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA-CATERING-APP");
         this.manager = factory.createEntityManager();
     }

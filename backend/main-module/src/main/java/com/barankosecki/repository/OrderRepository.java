@@ -7,6 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -57,17 +60,39 @@ public class OrderRepository {
         try {
             manager.getTransaction().begin();
             Order order = findById(orderId);
+
+            if (order.getState().equals("DELIVERED") || order.getState().equals("CANCELLED")) {
+                System.out.println("To zamówienie zostało już " + order.getState());
+                manager.getTransaction().rollback();
+                return;
+            }
+
+            if (order.getState().equals("SUBSCRIBED")) {
+
+                Order subscription = new Order();
+
+                LocalDate localDate = order.getDate().toLocalDate();
+                subscription.setDate(Date.valueOf(localDate.plusWeeks(1)));
+
+                subscription.setMeals(new HashSet<>(order.getMeals()));
+                subscription.setPrice(order.getPrice());
+                subscription.setCustomer(order.getCustomer());
+                subscription.setLocation(order.getLocation());
+                subscription.setState("SUBSCRIBED");
+
+                manager.persist(subscription);
+            }
+
             order.setState(state);
+
             manager.persist(order);
             manager.getTransaction().commit();
-            System.out.println("------ horray ------");
         } catch (Exception e) {
             manager.getTransaction().rollback();
-            System.out.println("------ nope ------");
         }
     }
 
-    private Order findById(Integer orderId) {
+    public Order findById(Integer orderId) {
         try {
             return manager.find(Order.class, orderId);
         } catch (Exception e) {
@@ -76,11 +101,11 @@ public class OrderRepository {
         }
     }
 
-    public List findAllActive() {
+    public List findAllByState(String state) {
         try {
             return manager
                     .createQuery("SELECT o FROM Order o WHERE o.state=:state")
-                    .setParameter("state", "ORDERED")
+                    .setParameter("state", state)
                     .getResultList();
         } catch (Exception e) {
             e.printStackTrace();

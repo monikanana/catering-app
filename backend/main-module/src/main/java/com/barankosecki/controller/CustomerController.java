@@ -4,7 +4,7 @@ import com.barankosecki.dto.OrderFromClientDTO;
 import com.barankosecki.dto.SubscriptionFromClientDTO;
 import com.barankosecki.repository.CustomerRepository;
 import com.barankosecki.repository.OrderRepository;
-import com.barankosecki.repository.SubscriptionsRespository;
+import com.barankosecki.repository.SubscriptionsRepository;
 import com.barankosecki.service.OrderService;
 
 import javax.inject.Inject;
@@ -22,7 +22,7 @@ public class CustomerController {
     private OrderRepository orderRepository;
 
     @Inject
-    private SubscriptionsRespository subscriptionsRespository;
+    private SubscriptionsRepository subscriptionsRepository;
 
     private final OrderService orderService;
 
@@ -55,12 +55,11 @@ public class CustomerController {
     @Path("/{id}/subscriptions")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findSubscriptionsByCustomerId(@PathParam("id") Integer id) {
-        return Response.ok(subscriptionsRespository.findAllByCustomerId(id)).build();
+        return Response.ok(subscriptionsRepository.findAllByCustomerId(id)).build();
     }
 
     @POST
     @Path("/{id}/orders")
-    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response order(@PathParam("id") Integer customerId, OrderFromClientDTO dto) {
         orderService.sendOrder(customerId, dto);
@@ -69,8 +68,9 @@ public class CustomerController {
 
     @POST
     @Path("/{id}/subscriptions")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response addSubscription(@PathParam("id") Integer id, SubscriptionFromClientDTO subscriptionDTO) {
-        return null;
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addSubscription(@PathParam("id") Integer id, SubscriptionFromClientDTO dto) {
+        orderService.makeSubscription(id, dto);
+        return Response.ok().build();
     }
 }
