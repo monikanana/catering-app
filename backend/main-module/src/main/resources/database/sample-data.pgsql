@@ -61,6 +61,5 @@ insert into orders_meals(id_order, id_meal) VALUES
 (4,5),
 (5,1),(5,2),
 (6,1);
-commit;
 
-select * from orders;
+commit;
