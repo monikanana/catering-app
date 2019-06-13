@@ -30,9 +30,9 @@ project starts on: http://localhost:8080/catering_app_war_exploded/
 
 **POST** /orders/{id}/deliver -> no payload
 
-**POST** /orders/{id}/cancel -> no payload
+**POST** /orders/{id}/cancel -> no payload (Cancels just one order. If order is subscription, it doesn't cancel next orders of subcription.)
 
-**POST** /orders/{id}/cancel-subscription -> no payload
+**POST** /orders/{id}/cancel-subscription -> no payload (Cancels whole subscription.)
 
 **GET** /restaurants
 
