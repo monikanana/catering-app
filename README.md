@@ -1,29 +1,39 @@
 project starts on: http://localhost:8080/catering_app_war_exploded/
 
-**available endpoints GET**:
+**GET** /customers/{id}
 
-/customers/{id}
+**GET** /customers/{id}/orders
 
-/customers/{id}/orders
+**GET** /customers/{id}/history
 
-/customers/{id}/history
+**GET** /customers/{id}/subscriptions
 
-/customers/{id}/subscriptions
+**POST** /customers/{id}/orders -> body: src/main/java/com/barankosecki/dto/OrderFromClientDTO.java. UWAGA: zamówienie jest wysyłane na klienta o id z URL-a a nie z body
 
-/meals
+**POST** /customers/{id}/subscriptions -> body: src/main/java/com/barankosecki/dto/SubscriptionFromClientDTO.java
 
-/meals/top-meals
+**GET** /locations
 
-/meals/categories
+**GET** /locations/{id}
 
-/orders/all
+**GET** /meals
 
-/orders/active
+**GET** /meals/categories
 
-**available endpoints POST**:
+**GET** /meals/top-meals (zwraca top-3)
 
-/customers/{id}/orders -> body: src/main/java/com/barankosecki/dto/OrderFromClientDTO.java
+**GET** /orders/all
 
-/orders/{id}/deliver -> no body is required
+**GET** /orders/active
 
-/orders/{id}/cancel -> no body is required
+**GET** /orders/subscribed
+
+**POST** /orders/{id}/deliver -> no payload
+
+**POST** /orders/{id}/cancel -> no payload (Cancels just one order. If order is subscription, it doesn't cancel next orders of subcription.)
+
+**POST** /orders/{id}/cancel-subscription -> no payload (Cancels whole subscription.)
+
+**GET** /restaurants
+
+**GET** /restaurants/{id}
