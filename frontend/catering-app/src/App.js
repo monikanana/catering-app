@@ -12,7 +12,9 @@ class App extends Component {
             customerId: 1,
             locationId: 0,
             date: moment(),
-            weekdays: []
+            weekdays: [],
+            historyModalOpen: false,
+            orderSent: false,
         };
         this.getData = this.getData.bind(this);
         this.isAdded = this.isAdded.bind(this);
@@ -23,6 +25,7 @@ class App extends Component {
         this.changeWeekdays = this.changeWeekdays.bind(this);
         this.createOrder = this.createOrder.bind(this);
         this.clearFields = this.clearFields.bind(this);
+        this.toggleHistoryModal = this.toggleHistoryModal.bind(this);
     }
 
     getData() {
@@ -83,7 +86,6 @@ class App extends Component {
     }
 
     setOrderDate(value) {
-        console.log("date: " + value);
         this.setState({date: value});
     }
 
@@ -106,7 +108,6 @@ class App extends Component {
     createOrder() {
         const {
             basket,
-            price,
             customerId,
             locationId,
             date,
@@ -129,7 +130,6 @@ class App extends Component {
                 }
 
             }
-            console.log(dates);
 
             let subBody = {
                 mealsId: basket,
@@ -147,7 +147,10 @@ class App extends Component {
                     },
                     body: JSON.stringify(subBody)
                 }
-            )
+            ).then(() => {
+                this.clearFields();
+                this.setState({orderSent: true});
+            });
         }
 
         if (weekdays.length === 0) {
@@ -168,7 +171,10 @@ class App extends Component {
                     },
                     body: JSON.stringify(orderBody)
                 }
-            );
+            ).then(() => {
+                this.clearFields();
+                this.setState({orderSent: true});
+            });
         }
     }
 
@@ -183,15 +189,19 @@ class App extends Component {
         });
     }
 
+    toggleHistoryModal() {
+        this.setState(prevState => ({historyModalOpen: !prevState.historyModalOpen}));
+    }
+
     render() {
-        const {meals, topMeals, locations, price, date, locationId} = this.state;
+        const {meals, topMeals, locations, price, date, locationId, orderSent} = this.state;
 
         return (
             <div className="App">
                 <header className="App-header">
                     <nav className="header-nav">
-                        <a href="#">Historia zamówień</a>
-                        <a href="#">Raporty płatności</a>
+                        <button className="nav-button" onClick={this.toggleHistoryModal}>Historia zamówień</button>
+                        <button className="nav-button">Raporty płatności</button>
                     </nav>
                 </header>
                 <div className="content">
@@ -309,6 +319,7 @@ class App extends Component {
                         <Button disabled={price === 0 || locationId === 0} type="primary" onClick={this.createOrder}>
                             Zamów
                         </Button>
+                        {orderSent && <span className="success">Zamówienie wysłane</span>}
                     </div>
                 </div>
             </div>

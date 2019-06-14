@@ -24,7 +24,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getOrders();
-    setInterval(() => this.getOrders(), 100000);
+    setInterval(() => this.getOrders(), 10000);
   }
 
   completeOrder(id) {
