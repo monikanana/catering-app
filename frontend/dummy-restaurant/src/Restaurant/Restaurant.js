@@ -42,6 +42,7 @@ class Restaurant extends Component {
         if (this.props.match.params.restaurantId) {
             this.getRestaurantInfo();
             this.getMeals(+this.props.match.params.restaurantId);
+            setInterval(() => this.getMeals(+this.props.match.params.restaurantId), 100000);
         }
     }
 
