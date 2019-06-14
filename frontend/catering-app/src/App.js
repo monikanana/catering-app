@@ -121,11 +121,10 @@ class App extends Component {
                 const newDate = moment(date);
                 newDate.add(weekdays[i] - date.day(), 'd');
 
-                if(newDate < date) {
+                if (newDate < date) {
                     newDate.add(7, 'd');
                     dates.push(newDate.format('X'));
-                }
-                else {
+                } else {
                     dates.push(newDate.format('X'));
                 }
 
@@ -185,7 +184,7 @@ class App extends Component {
     }
 
     render() {
-        const {meals, topMeals, locations, price, date} = this.state;
+        const {meals, topMeals, locations, price, date, locationId} = this.state;
 
         return (
             <div className="App">
@@ -265,49 +264,52 @@ class App extends Component {
                             );
                         })}
                     </ul>
-                    <Select
-                        style={{width: 300}}
-                        placeholder="Wybierz miejsce dostawy"
-                        onChange={this.handleLocationChange}
-                    >
-                        {locations &&
-                        locations.map(location => {
-                            return (
-                                <Select.Option key={location.id} value={location.id}>
-                                    {location.name}
-                                </Select.Option>
-                            );
-                        })}
-                    </Select>
-                    Jeśli chcesz, aby zamówienie było cykliczne zaznacz dni tygodnia:
-                    <Checkbox.Group style={{width: "100%"}}>
-                        <Checkbox value={1} onChange={this.changeWeekdays}>
-                            Poniedziałek
-                        </Checkbox>
-                        <Checkbox value={2} onChange={this.changeWeekdays}>
-                            Wtorek
-                        </Checkbox>
-                        <Checkbox value={3} onChange={this.changeWeekdays}>
-                            Środa
-                        </Checkbox>
-                        <Checkbox value={4} onChange={this.changeWeekdays}>
-                            Czwartek
-                        </Checkbox>
-                        <Checkbox value={5} onChange={this.changeWeekdays}>
-                            Piątek
-                        </Checkbox>
-                        <Checkbox value={6} onChange={this.changeWeekdays}>
-                            Sobota
-                        </Checkbox>
-                        <Checkbox value={7} onChange={this.changeWeekdays}>
-                            Niedziela
-                        </Checkbox>
-                    </Checkbox.Group>
-                    <span>Wartość zamówienia: {price}zł</span>
-                    <DatePicker defaultValue={date} onChange={this.setOrderDate}/>
-                    <Button type="primary" onClick={this.createOrder}>
-                        Zamów
-                    </Button>
+                    <Typography.Title level={2} className="order-details">Szczegóły zamówienia</Typography.Title>
+                    <div className="order-form">
+                        <Select
+                            style={{width: 300, display: "block", margin: "0 auto 20px auto"}}
+                            placeholder="Wybierz miejsce dostawy"
+                            onChange={this.handleLocationChange}
+                        >
+                            {locations &&
+                            locations.map(location => {
+                                return (
+                                    <Select.Option key={location.id} value={location.id}>
+                                        {location.name}
+                                    </Select.Option>
+                                );
+                            })}
+                        </Select>
+                        <span className="subscribe-title">Jeśli chcesz, aby zamówienie było cykliczne zaznacz dni tygodnia:</span>
+                        <Checkbox.Group style={{width: "100%", marginBottom: "20px"}}>
+                            <Checkbox value={1} onChange={this.changeWeekdays}>
+                                Poniedziałek
+                            </Checkbox>
+                            <Checkbox value={2} onChange={this.changeWeekdays}>
+                                Wtorek
+                            </Checkbox>
+                            <Checkbox value={3} onChange={this.changeWeekdays}>
+                                Środa
+                            </Checkbox>
+                            <Checkbox value={4} onChange={this.changeWeekdays}>
+                                Czwartek
+                            </Checkbox>
+                            <Checkbox value={5} onChange={this.changeWeekdays}>
+                                Piątek
+                            </Checkbox>
+                            <Checkbox value={6} onChange={this.changeWeekdays}>
+                                Sobota
+                            </Checkbox>
+                            <Checkbox value={7} onChange={this.changeWeekdays}>
+                                Niedziela
+                            </Checkbox>
+                        </Checkbox.Group>
+                        <DatePicker className="date-picker" defaultValue={date} onChange={this.setOrderDate}/>
+                        <span className="order-price">Wartość zamówienia: {price}zł</span>
+                        <Button disabled={price === 0 || locationId === 0} type="primary" onClick={this.createOrder}>
+                            Zamów
+                        </Button>
+                    </div>
                 </div>
             </div>
         );

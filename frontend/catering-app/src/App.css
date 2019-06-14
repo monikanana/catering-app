@@ -94,4 +94,29 @@ h1 {
     right: 20px;
 }
 
+.order-details {
+    text-align: center;
+}
+
+.order-form {
+    text-align: center;
+    padding: 20px;
+}
+
+.subscribe-title {
+    margin-bottom: 20px;
+    display: block;
+}
+
+.order-price {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.date-picker {
+    display: block;
+    width: 300px;
+    margin: 0 auto 20px auto;
+}
+
 
