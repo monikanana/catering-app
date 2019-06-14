@@ -18,8 +18,8 @@ insert into locations(name, address) values
 ('Sabre strych', 'ul. Lea 23, Kraków'),
 ('Schibsted Bawialnia', 'ul. AK 2, Kraków'),
 ('Schibsted Sala Reprezentacyjna', 'ul. AK 2, Kraków'),
-('Comarch Kamieniołom', 'ul. Conrada 2, Kraków'),
-('Comarch Tartak', 'ul. Conrada 1, Kraków');
+('Nokia parter', 'ul. Conrada 2, Kraków'),
+('Nokia Playstation', 'ul. Conrada 1, Kraków');
 
 insert into restaurants(name, address) values
 ('Kebab Pasja', 'ul. Kawiory 1a, Kraków'),
